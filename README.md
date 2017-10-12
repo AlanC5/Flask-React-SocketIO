@@ -13,3 +13,6 @@ Flask, React, and SocketIO in Python3 and ES6
 pip install pylint
 pylint {filename/directory}
 
+
+## Documentation
+http://flask-socketio.readthedocs.io/en/latest/
