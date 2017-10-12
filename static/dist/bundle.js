@@ -78,6 +78,10 @@
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
+	var _socketIoHelper = __webpack_require__(/*! ./helpers/socketIoHelper */ 35);
+	
+	var _socketIoHelper2 = _interopRequireDefault(_socketIoHelper);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -96,6 +100,11 @@
 	  }
 	
 	  _createClass(Hello, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      _socketIoHelper2.default.setup();
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -38386,6 +38395,26 @@
 		return module;
 	}
 
+
+/***/ },
+/* 35 */
+/*!*********************************************!*\
+  !*** ./static/js/helpers/socketIoHelper.js ***!
+  \*********************************************/
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	var SocketIoHelper = {
+		setup: function setup() {
+			var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
+			socket.on('my response', function (msg) {
+				alert(msg.data);
+			});
+		}
+	};
+	
+	module.exports = SocketIoHelper;
 
 /***/ }
 /******/ ]);
